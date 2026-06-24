@@ -55,9 +55,7 @@ function InviteCardInner({ name, company, date, count }: InviteCardProps & { for
 
         <div className="relative z-10">
           <div className="flex justify-center mb-5">
-            <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-xl ring-4 ring-white/20">
-              <img src="/logo.jpeg" alt="CGCH Logo" className="w-20 h-20 object-contain rounded-full" />
-            </div>
+            <img src="/logo.jpeg" alt="CGCH Logo" className="h-16 object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-white tracking-widest mb-1">{t("invite.title")}</h1>
           {t("invite.titleEn") && (

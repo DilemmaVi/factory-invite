@@ -16,9 +16,7 @@ export default function Home() {
 
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg border-2 border-white">
-              <img src="/logo.jpeg" alt="CGCH Logo" className="w-full h-full object-cover" />
-            </div>
+            <img src="/logo.jpeg" alt="CGCH Logo" className="h-16 object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-[#1e3a5f] mb-2">{t("home.title")}</h1>
           <p className="text-gray-600 font-medium">{t("home.subtitle")}</p>
