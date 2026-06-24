@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
   try {
     const data: FormData = await request.json();
 
-    if (!data.name || !data.company || !data.email) {
+    if (!data.name || !data.company || !data.email || !data.visitDate || !data.visitorCount) {
       return NextResponse.json({ error: "请填写所有必填字段" }, { status: 400 });
     }
 

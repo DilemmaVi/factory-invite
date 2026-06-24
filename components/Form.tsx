@@ -39,7 +39,7 @@ export default function Form() {
     setLoading(true);
     setError("");
 
-    if (!formData.name || !formData.company || !formData.email) {
+    if (!formData.name || !formData.company || !formData.email || !formData.visitDate || !formData.visitorCount) {
       setError(t("error.requiredFields"));
       setLoading(false);
       return;
@@ -157,23 +157,32 @@ export default function Form() {
         </div>
 
         <div>
-          {label(t("form.visitDate"), false)}
-          <input
-            type="date"
-            name="visitDate"
-            value={formData.visitDate}
-            onChange={handleChange}
-            min={new Date().toISOString().split("T")[0]}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
-          />
+          {label(t("form.visitDate"), true)}
+          <div className="relative">
+            <input
+              type="date"
+              name="visitDate"
+              value={formData.visitDate}
+              onChange={handleChange}
+              required
+              min={new Date().toISOString().split("T")[0]}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
+            />
+            {!formData.visitDate && (
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                {t("form.placeholder.visitDate")}
+              </span>
+            )}
+          </div>
         </div>
 
         <div>
-          {label(t("form.visitorCount"), false)}
+          {label(t("form.visitorCount"), true)}
           <select
             name="visitorCount"
             value={formData.visitorCount}
             onChange={handleChange}
+            required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
           >
             <option value="">{t("form.select")}</option>
