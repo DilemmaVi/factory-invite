@@ -1,0 +1,38 @@
+components/InviteCard.tsx
+  afb012a38a20fc8c 58
+app/page.tsx
+  4e45913a501bef94 19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.3",
+  "base_commit_sha": "352cc7cf3f8c5a0f37eec40d999def9df6f358c7",
+  "prompts": {
+    "4e45913a501bef94": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-ae82c5ba-5764-46c1-bece-8e6706cbac21",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 3,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "afb012a38a20fc8c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-b97b5b80-f53b-4c87-b67f-427b1e951075",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 3,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
