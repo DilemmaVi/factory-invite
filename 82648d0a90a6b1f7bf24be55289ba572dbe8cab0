@@ -1,0 +1,38 @@
+components/Form.tsx
+  830364348741f362 161-169
+app/globals.css
+  3c6706cba4223236 68-80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.3",
+  "base_commit_sha": "82648d0a90a6b1f7bf24be55289ba572dbe8cab0",
+  "prompts": {
+    "3c6706cba4223236": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-a88ba957-80f8-46d3-bfe7-f9072ac6692a",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 13,
+      "total_deletions": 0,
+      "accepted_lines": 13,
+      "overriden_lines": 0
+    },
+    "830364348741f362": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-b4ca3725-bd65-46eb-88b1-2607d1e93708",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 9,
+      "total_deletions": 16,
+      "accepted_lines": 9,
+      "overriden_lines": 0
+    }
+  }
+}
