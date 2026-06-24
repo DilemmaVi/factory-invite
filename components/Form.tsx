@@ -4,7 +4,15 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useI18n } from "@/lib/i18n";
+
+const localeMap: Record<string, string> = {
+  zh: "zh-CN",
+  en: "en-US",
+  es: "es",
+};
 
 export default function Form() {
   const router = useRouter();
@@ -32,6 +40,15 @@ export default function Form() {
 
   const handlePhoneChange = (value: string | undefined) => {
     setFormData({ ...formData, phone: value || "" });
+  };
+
+  const handleDateChange = (date: Date | null) => {
+    if (date) {
+      const formatted = date.toISOString().split("T")[0];
+      setFormData({ ...formData, visitDate: formatted });
+    } else {
+      setFormData({ ...formData, visitDate: "" });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -158,14 +175,16 @@ export default function Form() {
 
         <div>
           {label(t("form.visitDate"), true)}
-          <input
-            type="date"
-            name="visitDate"
-            value={formData.visitDate}
-            onChange={handleChange}
+          <DatePicker
+            selected={formData.visitDate ? new Date(formData.visitDate + "T00:00:00") : null}
+            onChange={handleDateChange}
+            minDate={new Date()}
+            locale={localeMap[locale] || "en-US"}
+            placeholderText={t("form.placeholder.visitDate")}
+            dateFormat="yyyy-MM-dd"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
+            wrapperClassName="w-full"
             required
-            min={new Date().toISOString().split("T")[0]}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent date-input"
           />
         </div>
 
