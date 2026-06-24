@@ -22,18 +22,15 @@ function getLocaleFromCountry(country: string | null | undefined): Locale {
 }
 
 export function I18nProvider({ children, defaultLocale }: { children: ReactNode; defaultLocale?: Locale }) {
-  const [locale, setLocaleState] = useState<Locale>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved && (saved === "zh" || saved === "en" || saved === "es")) {
-        return saved;
-      }
-    }
-    return defaultLocale || "en";
-  });
+  const [locale, setLocaleState] = useState<Locale>("en");
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    if (defaultLocale && !localStorage.getItem(STORAGE_KEY)) {
+    setIsClient(true);
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && (saved === "zh" || saved === "en" || saved === "es")) {
+      setLocaleState(saved);
+    } else if (defaultLocale) {
       setLocaleState(defaultLocale);
     }
   }, [defaultLocale]);
