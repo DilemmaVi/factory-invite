@@ -1,0 +1,36 @@
+components/InviteCard.tsx
+  4e677fed9edc093b 141,144
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.3",
+  "base_commit_sha": "c543dca6faab3e0dfde67e351085c1a8ac63b7aa",
+  "prompts": {
+    "4e677fed9edc093b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-ab09e079-ba9c-4931-89b9-3329c061da16",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 10,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "9b794fcca4c9dc8b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-24b14dfd-931c-4320-8906-82cdf0aadb9b",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    }
+  }
+}
