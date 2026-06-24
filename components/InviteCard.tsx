@@ -3,6 +3,9 @@
 import { useRef } from "react";
 import { toPng } from "html-to-image";
 import { useI18n } from "@/lib/i18n";
+import { format, parseISO } from "date-fns";
+import { zhCN, enUS, es } from "date-fns/locale";
+import type { Locale } from "date-fns";
 
 interface InviteCardProps {
   name: string;
@@ -11,8 +14,32 @@ interface InviteCardProps {
   count: string;
 }
 
+const localeMap: Record<string, Locale> = {
+  zh: zhCN,
+  en: enUS,
+  es: es,
+};
+
+const dateFormatMap: Record<string, string> = {
+  zh: "yyyy年MM月dd日",
+  en: "MMMM dd, yyyy",
+  es: "dd 'de' MMMM 'de' yyyy",
+};
+
+function formatDate(dateStr: string, locale: string): string {
+  if (!dateStr) return "";
+  try {
+    const date = parseISO(dateStr);
+    const dateLocale = localeMap[locale] || enUS;
+    const formatStr = dateFormatMap[locale] || "yyyy-MM-dd";
+    return format(date, formatStr, { locale: dateLocale });
+  } catch {
+    return dateStr;
+  }
+}
+
 function InviteCardInner({ name, company, date, count }: InviteCardProps & { forDownload?: boolean }) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   return (
     <>
@@ -71,7 +98,7 @@ function InviteCardInner({ name, company, date, count }: InviteCardProps & { for
                 </div>
                 <p className="text-xs text-gray-400 uppercase tracking-wider">{t("invite.visitDate")}</p>
               </div>
-              <p className="font-semibold text-gray-800 text-lg">{date}</p>
+              <p className="font-semibold text-gray-800 text-lg">{formatDate(date, locale)}</p>
             </div>
           )}
 
