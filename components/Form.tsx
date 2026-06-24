@@ -6,12 +6,14 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { zhCN, enUS, es } from "date-fns/locale";
+import type { Locale } from "date-fns";
 import { useI18n } from "@/lib/i18n";
 
-const localeMap: Record<string, string> = {
-  zh: "zh-CN",
-  en: "en-US",
-  es: "es",
+const localeMap: Record<string, Locale> = {
+  zh: zhCN,
+  en: enUS,
+  es: es,
 };
 
 export default function Form() {
