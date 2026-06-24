@@ -1,0 +1,37 @@
+components/Form.tsx
+  9a50554c6cc59a59 9,13-16
+  b4adca9701249910 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.3",
+  "base_commit_sha": "d06c77cbba1d7f4bb80309943b12c33290333696",
+  "prompts": {
+    "9a50554c6cc59a59": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-f6d50dbb-d1c1-4b78-96f3-25d497e05c4d",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 5,
+      "total_deletions": 4,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    },
+    "b4adca9701249910": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-bcf162ce-767d-4968-8d03-aa575f61a51f",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
