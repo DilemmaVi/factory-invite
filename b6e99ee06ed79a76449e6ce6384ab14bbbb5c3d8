@@ -1,0 +1,23 @@
+components/InviteCard.tsx
+  43f728879ca88da2 20-21,23-26,30-32,35,37,39-41,45-48,50-51,54-60,63,65-72,74,79-86,88,93-96,100,137-138,143,146,160,172
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.3",
+  "base_commit_sha": "b6e99ee06ed79a76449e6ce6384ab14bbbb5c3d8",
+  "prompts": {
+    "43f728879ca88da2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-d1383e89-241d-4954-b3bf-4a5ab239b218",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 57,
+      "total_deletions": 50,
+      "accepted_lines": 57,
+      "overriden_lines": 0
+    }
+  }
+}
