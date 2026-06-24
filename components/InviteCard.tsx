@@ -136,13 +136,12 @@ function InviteCardInner({ name, company, date, count }: InviteCardProps & { for
 export default function InviteCard({ name, company, date, count }: InviteCardProps) {
   const { t } = useI18n();
   const cardRef = useRef<HTMLDivElement>(null);
-  const hiddenCardRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {
-    if (!hiddenCardRef.current) return;
+    if (!cardRef.current) return;
 
     try {
-      const dataUrl = await toPng(hiddenCardRef.current, {
+      const dataUrl = await toPng(cardRef.current, {
         quality: 1,
         pixelRatio: 2,
         backgroundColor: "#ffffff",
@@ -191,14 +190,6 @@ export default function InviteCard({ name, company, date, count }: InviteCardPro
           </svg>
           WhatsApp
         </button>
-      </div>
-
-      <div
-        ref={hiddenCardRef}
-        className="fixed left-[-9999px] top-0 w-[600px] bg-white"
-        style={{ fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif" }}
-      >
-        <InviteCardInner name={name} company={company} date={date} count={count} forDownload />
       </div>
     </div>
   );
