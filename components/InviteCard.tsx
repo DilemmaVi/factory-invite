@@ -21,9 +21,9 @@ const localeMap: Record<string, Locale> = {
 };
 
 const dateFormatMap: Record<string, string> = {
-  zh: "yyyy年MM月dd日",
-  en: "MMMM dd, yyyy",
-  es: "dd 'de' MMMM 'de' yyyy",
+  zh: "yyyy/M/d",
+  en: "M/d/yyyy",
+  es: "d/M/yyyy",
 };
 
 function formatDate(dateStr: string, locale: string): string {
