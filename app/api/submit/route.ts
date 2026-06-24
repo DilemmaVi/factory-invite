@@ -4,7 +4,6 @@ import nodemailer from "nodemailer";
 interface FormData {
   name: string;
   company: string;
-  position?: string;
   email: string;
   phone?: string;
   visitDate?: string;
@@ -30,7 +29,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    const inviteUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/invite?name=${encodeURIComponent(data.name)}&company=${encodeURIComponent(data.company)}&position=${encodeURIComponent(data.position || "")}&date=${encodeURIComponent(data.visitDate || "")}&count=${encodeURIComponent(data.visitorCount || "")}`;
+    const inviteUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/invite?name=${encodeURIComponent(data.name)}&company=${encodeURIComponent(data.company)}&date=${encodeURIComponent(data.visitDate || "")}&count=${encodeURIComponent(data.visitorCount || "")}`;
 
     if (process.env.SMTP_USER && process.env.SMTP_PASS && process.env.SMTP_USER !== "your-email@your-domain.com") {
       const adminMailOptions = {
@@ -48,10 +47,6 @@ export async function POST(request: NextRequest) {
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">公司</td>
               <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.company}</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">职位</td>
-              <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.position || "-"}</td>
             </tr>
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">邮箱</td>

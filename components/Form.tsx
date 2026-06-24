@@ -24,7 +24,6 @@ export default function Form() {
   const [formData, setFormData] = useState({
     name: "",
     company: "",
-    position: "",
     email: "",
     phone: "",
     visitDate: "",
@@ -160,18 +159,6 @@ export default function Form() {
             onChange={handlePhoneChange}
             className="phone-input-container"
             placeholder={t("form.placeholder.phone")}
-          />
-        </div>
-
-        <div>
-          {label(t("form.position"), false)}
-          <input
-            type="text"
-            name="position"
-            value={formData.position}
-            onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
-            placeholder={t("form.placeholder.position")}
           />
         </div>
 

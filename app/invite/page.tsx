@@ -12,7 +12,6 @@ function InviteContent() {
 
   const name = searchParams.get("name") || "";
   const company = searchParams.get("company") || "";
-  const position = searchParams.get("position") || "";
   const date = searchParams.get("date") || "";
   const count = searchParams.get("count") || "";
 
@@ -29,7 +28,6 @@ function InviteContent() {
       <InviteCard
         name={name}
         company={company}
-        position={position}
         date={date}
         count={count}
       />

@@ -7,12 +7,11 @@ import { useI18n } from "@/lib/i18n";
 interface InviteCardProps {
   name: string;
   company: string;
-  position?: string;
   date: string;
   count: string;
 }
 
-function InviteCardInner({ name, company, position, date, count }: InviteCardProps & { forDownload?: boolean }) {
+function InviteCardInner({ name, company, date, count }: InviteCardProps & { forDownload?: boolean }) {
   const { t } = useI18n();
 
   return (
@@ -42,8 +41,7 @@ function InviteCardInner({ name, company, position, date, count }: InviteCardPro
             {t("invite.dear")} <span className="font-bold text-[#294778]">{name}</span>
             {t("invite.suffix")}
           </p>
-          {position && <p className="text-sm text-gray-500 mt-1">{company} · {position}</p>}
-          {!position && <p className="text-sm text-gray-500 mt-1">{company}</p>}
+          <p className="text-sm text-gray-500 mt-1">{company}</p>
         </div>
 
         <div className="bg-gray-50 rounded-lg p-6 mb-6">
@@ -98,7 +96,7 @@ function InviteCardInner({ name, company, position, date, count }: InviteCardPro
   );
 }
 
-export default function InviteCard({ name, company, position, date, count }: InviteCardProps) {
+export default function InviteCard({ name, company, date, count }: InviteCardProps) {
   const { t } = useI18n();
   const cardRef = useRef<HTMLDivElement>(null);
   const hiddenCardRef = useRef<HTMLDivElement>(null);
@@ -129,7 +127,7 @@ export default function InviteCard({ name, company, position, date, count }: Inv
         className="w-full max-w-[600px] bg-white shadow-2xl rounded-lg overflow-hidden"
         style={{ fontFamily: "serif" }}
       >
-        <InviteCardInner name={name} company={company} position={position} date={date} count={count} />
+        <InviteCardInner name={name} company={company} date={date} count={count} />
       </div>
 
       <button
@@ -147,7 +145,7 @@ export default function InviteCard({ name, company, position, date, count }: Inv
         className="fixed left-[-9999px] top-0 w-[600px] bg-white"
         style={{ fontFamily: "serif" }}
       >
-        <InviteCardInner name={name} company={company} position={position} date={date} count={count} forDownload />
+        <InviteCardInner name={name} company={company} date={date} count={count} forDownload />
       </div>
     </div>
   );
