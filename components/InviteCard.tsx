@@ -6,12 +6,14 @@ import { useI18n } from "@/lib/i18n";
 import { format, parseISO } from "date-fns";
 import { zhCN, enUS, es } from "date-fns/locale";
 import type { Locale } from "date-fns";
+import { QRCodeSVG } from "qrcode.react";
 
 interface InviteCardProps {
   name: string;
   company: string;
   date: string;
   count: string;
+  inviteUrl?: string;
 }
 
 const localeMap: Record<string, Locale> = {
@@ -38,7 +40,7 @@ function formatDate(dateStr: string, locale: string): string {
   }
 }
 
-function InviteCardInner({ name, company, date, count }: InviteCardProps & { forDownload?: boolean }) {
+function InviteCardInner({ name, company, date, count, inviteUrl }: InviteCardProps & { forDownload?: boolean }) {
   const { t, locale } = useI18n();
 
   return (
@@ -115,10 +117,18 @@ function InviteCardInner({ name, company, date, count }: InviteCardProps & { for
           )}
         </div>
 
-        <div className="border-t border-gray-100 pt-6">
-          <p className="text-xs text-gray-400 uppercase tracking-wider mb-3">{t("invite.contactUs")}</p>
-          <p className="text-gray-800 font-medium">{t("invite.company")}</p>
-          <p className="text-gray-400 text-sm">{t("invite.companyEn")}</p>
+        <div className="border-t border-gray-100 pt-6 flex items-center justify-between">
+          <div>
+            <p className="text-xs text-gray-400 uppercase tracking-wider mb-3">{t("invite.contactUs")}</p>
+            <p className="text-gray-800 font-medium">{t("invite.company")}</p>
+            <p className="text-gray-400 text-sm">{t("invite.companyEn")}</p>
+          </div>
+          {inviteUrl && (
+            <div className="flex flex-col items-center">
+              <QRCodeSVG value={inviteUrl} size={80} level="M" />
+              <p className="text-xs text-gray-400 mt-1">{t("invite.scanToVerify")}</p>
+            </div>
+          )}
         </div>
       </div>
 
@@ -131,7 +141,7 @@ function InviteCardInner({ name, company, date, count }: InviteCardProps & { for
   );
 }
 
-export default function InviteCard({ name, company, date, count }: InviteCardProps) {
+export default function InviteCard({ name, company, date, count, inviteUrl }: InviteCardProps) {
   const { t } = useI18n();
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -161,7 +171,7 @@ export default function InviteCard({ name, company, date, count }: InviteCardPro
         className="w-full max-w-[600px] bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200"
         style={{ fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif" }}
       >
-        <InviteCardInner name={name} company={company} date={date} count={count} />
+        <InviteCardInner name={name} company={company} date={date} count={count} inviteUrl={inviteUrl} />
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3 mt-8">
