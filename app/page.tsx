@@ -24,25 +24,6 @@ export default function Home() {
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-          <div className="bg-gradient-to-r from-[#294778] to-[#1e3a5f] p-4">
-            <div className="flex items-center justify-center space-x-8 text-white text-sm">
-              <div className="flex items-center">
-                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-2 text-xs font-bold">1</div>
-                <span>{t("home.step1")}</span>
-              </div>
-              <div className="w-8 h-px bg-white/30"></div>
-              <div className="flex items-center">
-                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-2 text-xs font-bold">2</div>
-                <span>{t("home.step2")}</span>
-              </div>
-              <div className="w-8 h-px bg-white/30"></div>
-              <div className="flex items-center">
-                <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-2 text-xs font-bold">3</div>
-                <span>{t("home.step3")}</span>
-              </div>
-            </div>
-          </div>
-
           <div className="p-8">
             <Form />
           </div>
