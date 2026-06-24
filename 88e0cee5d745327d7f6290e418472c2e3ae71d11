@@ -1,0 +1,23 @@
+components/InviteCard.tsx
+  2459426dc1a1cbe5 189
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.3",
+  "base_commit_sha": "88e0cee5d745327d7f6290e418472c2e3ae71d11",
+  "prompts": {
+    "2459426dc1a1cbe5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-02721198-eced-4468-a8be-a8316db33fcc",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
