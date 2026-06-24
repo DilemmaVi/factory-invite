@@ -179,22 +179,31 @@ export default function Form() {
 
         <div>
           {label(t("form.visitorCount"), true)}
-          <select
-            name="visitorCount"
-            value={formData.visitorCount}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
-          >
-            <option value="">{t("form.select")}</option>
-            <option value="1">1 {t("form.person")}</option>
-            <option value="2">2 {t("form.persons")}</option>
-            <option value="3">3 {t("form.persons")}</option>
-            <option value="4">4 {t("form.persons")}</option>
-            <option value="5">5 {t("form.persons")}</option>
-            <option value="6-10">6-10 {t("form.persons")}</option>
-            <option value="10+">{t("form.10plus")}</option>
-          </select>
+          <div className="grid grid-cols-4 gap-2">
+            {[
+              { value: "1", label: "1" },
+              { value: "2", label: "2" },
+              { value: "3", label: "3" },
+              { value: "4", label: "4" },
+              { value: "5", label: "5" },
+              { value: "6-10", label: "6-10" },
+              { value: "10+", label: "10+" },
+            ].map((option) => (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => setFormData({ ...formData, visitorCount: option.value })}
+                className={`py-2.5 px-3 rounded-lg border-2 font-medium transition-all ${
+                  formData.visitorCount === option.value
+                    ? "border-[#294778] bg-[#294778] text-white shadow-md"
+                    : "border-gray-200 text-gray-600 hover:border-[#294778] hover:text-[#294778]"
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+          <input type="hidden" name="visitorCount" value={formData.visitorCount} required />
         </div>
       </div>
 
