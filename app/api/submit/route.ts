@@ -39,7 +39,8 @@ export async function POST(request: NextRequest) {
 
     const inviteUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/invite?name=${encodeURIComponent(data.name)}&company=${encodeURIComponent(data.company)}&position=${encodeURIComponent(data.position || "")}&date=${encodeURIComponent(data.visitDate)}&count=${encodeURIComponent(data.visitorCount)}`;
 
-    const adminMailOptions = {
+    if (process.env.SMTP_USER && process.env.SMTP_PASS && process.env.SMTP_USER !== "your-email@your-domain.com") {
+      const adminMailOptions = {
       from: `"工厂参观邀请系统" <${process.env.SMTP_USER}>`,
       to: process.env.ADMIN_EMAIL,
       subject: `[新参观申请] ${data.company} - ${data.name}`,
@@ -112,6 +113,7 @@ export async function POST(request: NextRequest) {
         `,
       };
       await transporter.sendMail(customerMailOptions);
+    }
     }
 
     return NextResponse.json({

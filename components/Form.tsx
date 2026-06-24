@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+import { useI18n } from "@/lib/i18n";
 
 export default function Form() {
   const router = useRouter();
+  const { t } = useI18n();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
@@ -24,10 +28,20 @@ export default function Form() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handlePhoneChange = (value: string | undefined) => {
+    setFormData({ ...formData, phone: value || "" });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    if (!formData.name || !formData.company || !formData.email) {
+      setError(t("form.error.submitFailed"));
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/submit", {
@@ -39,16 +53,27 @@ export default function Form() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || "提交失败");
+        throw new Error(result.error || t("form.error.submitFailed"));
       }
 
       router.push(result.inviteUrl);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "提交失败，请稍后重试");
+      setError(err instanceof Error ? err.message : t("form.error.submitFailed"));
     } finally {
       setLoading(false);
     }
   };
+
+  const label = (text: string, required: boolean) => (
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      {text}{" "}
+      {required ? (
+        <span className="text-red-500 text-xs">({t("form.required")})</span>
+      ) : (
+        <span className="text-gray-400 text-xs">({t("form.optional")})</span>
+      )}
+    </label>
+  );
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -60,9 +85,7 @@ export default function Form() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            姓名 <span className="text-red-500">*</span>
-          </label>
+          {label(t("form.name"), true)}
           <input
             type="text"
             name="name"
@@ -70,14 +93,12 @@ export default function Form() {
             onChange={handleChange}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
-            placeholder="请输入您的姓名"
+            placeholder={t("form.placeholder.name")}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            公司名称 <span className="text-red-500">*</span>
-          </label>
+          {label(t("form.company"), true)}
           <input
             type="text"
             name="company"
@@ -85,26 +106,12 @@ export default function Form() {
             onChange={handleChange}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
-            placeholder="请输入公司名称"
+            placeholder={t("form.placeholder.company")}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">职位</label>
-          <input
-            type="text"
-            name="position"
-            value={formData.position}
-            onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
-            placeholder="请输入您的职位"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            邮箱 <span className="text-red-500">*</span>
-          </label>
+          {label(t("form.email"), true)}
           <input
             type="email"
             name="email"
@@ -112,72 +119,75 @@ export default function Form() {
             onChange={handleChange}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
-            placeholder="请输入邮箱地址"
+            placeholder={t("form.placeholder.email")}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            手机号 <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="tel"
-            name="phone"
+          {label(t("form.phone"), false)}
+          <PhoneInput
+            international
+            defaultCountry="MX"
             value={formData.phone}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
-            placeholder="请输入手机号"
+            onChange={handlePhoneChange}
+            className="phone-input-container"
+            placeholder={t("form.placeholder.phone")}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            预计参观日期 <span className="text-red-500">*</span>
-          </label>
+          {label(t("form.position"), false)}
+          <input
+            type="text"
+            name="position"
+            value={formData.position}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
+            placeholder={t("form.placeholder.position")}
+          />
+        </div>
+
+        <div>
+          {label(t("form.visitDate"), false)}
           <input
             type="date"
             name="visitDate"
             value={formData.visitDate}
             onChange={handleChange}
-            required
             min={new Date().toISOString().split("T")[0]}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            参观人数 <span className="text-red-500">*</span>
-          </label>
+          {label(t("form.visitorCount"), false)}
           <select
             name="visitorCount"
             value={formData.visitorCount}
             onChange={handleChange}
-            required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
           >
-            <option value="">请选择</option>
-            <option value="1">1 人</option>
-            <option value="2">2 人</option>
-            <option value="3">3 人</option>
-            <option value="4">4 人</option>
-            <option value="5">5 人</option>
-            <option value="6-10">6-10 人</option>
-            <option value="10+">10 人以上</option>
+            <option value="">{t("form.select")}</option>
+            <option value="1">1 {t("form.person")}</option>
+            <option value="2">2 {t("form.persons")}</option>
+            <option value="3">3 {t("form.persons")}</option>
+            <option value="4">4 {t("form.persons")}</option>
+            <option value="5">5 {t("form.persons")}</option>
+            <option value="6-10">6-10 {t("form.persons")}</option>
+            <option value="10+">{t("form.10plus")}</option>
           </select>
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">备注</label>
+        {label(t("form.notes"), false)}
         <textarea
           name="notes"
           value={formData.notes}
           onChange={handleChange}
           rows={3}
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#294778] focus:border-transparent"
-          placeholder="如有特殊需求请在此说明"
+          placeholder={t("form.placeholder.notes")}
         />
       </div>
 
@@ -186,7 +196,7 @@ export default function Form() {
         disabled={loading}
         className="w-full bg-[#294778] text-white py-3 px-6 rounded-lg font-medium hover:bg-[#1e3a5f] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {loading ? "提交中..." : "提交参观申请"}
+        {loading ? t("form.submitting") : t("form.submit")}
       </button>
     </form>
   );

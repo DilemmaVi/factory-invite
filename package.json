@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "html-to-image": "^1.11.13",
+    "libphonenumber-js": "^1.13.7",
     "next": "16.2.9",
     "nodemailer": "^9.0.1",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-phone-number-input": "^3.4.17"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

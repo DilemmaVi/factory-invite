@@ -24,3 +24,44 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.phone-input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.phone-input-container:focus-within {
+  box-shadow: 0 0 0 2px rgba(41, 71, 120, 0.5);
+  border-color: transparent;
+}
+
+.phone-input-container .PhoneInputCountry {
+  padding: 0 0 0 0.75rem;
+}
+
+.phone-input-container .PhoneInputCountrySelect {
+  border: none;
+  background: transparent;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.phone-input-container .PhoneInputCountryIcon {
+  width: 1.5em;
+  height: 1em;
+}
+
+.phone-input-container .PhoneInputInput {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.phone-input-container .PhoneInputInput::placeholder {
+  color: #9ca3af;
+}
