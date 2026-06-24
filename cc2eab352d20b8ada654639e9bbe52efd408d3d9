@@ -1,0 +1,23 @@
+components/Form.tsx
+  cf634cbee7a25e77 182-206
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.3",
+  "base_commit_sha": "cc2eab352d20b8ada654639e9bbe52efd408d3d9",
+  "prompts": {
+    "cf634cbee7a25e77": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-ff9c8bd1-42a1-41f9-add5-b9120994060f",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 25,
+      "total_deletions": 16,
+      "accepted_lines": 25,
+      "overriden_lines": 0
+    }
+  }
+}
