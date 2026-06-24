@@ -65,3 +65,16 @@ body {
 .phone-input-container .PhoneInputInput::placeholder {
   color: #9ca3af;
 }
+
+.date-input {
+  color-scheme: light;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.date-input::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
