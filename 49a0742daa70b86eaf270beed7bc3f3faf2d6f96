@@ -1,0 +1,21 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.3",
+  "base_commit_sha": "49a0742daa70b86eaf270beed7bc3f3faf2d6f96",
+  "prompts": {
+    "eff9d0f9fc4befec": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-6eb5449c-c8d7-4ebe-9f06-c04e447892b0",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 19,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    }
+  }
+}
