@@ -186,7 +186,7 @@ export default function InviteCard({ name, company, date, count }: InviteCardPro
           onClick={() => {
             const url = window.location.href;
             const text = `${t("invite.shareMessage")} ${url}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+            window.open(`https://wa.me/8618928623468?text=${encodeURIComponent(text)}`, "_blank");
           }}
           className="bg-green-600 text-white py-3 px-8 rounded-xl font-medium hover:bg-green-700 transition-all flex items-center shadow-lg hover:shadow-xl hover:-translate-y-0.5"
         >
