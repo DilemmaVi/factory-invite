@@ -13,7 +13,6 @@ interface InviteCardProps {
   company: string;
   date: string;
   count: string;
-  inviteUrl?: string;
 }
 
 const localeMap: Record<string, Locale> = {
@@ -40,7 +39,7 @@ function formatDate(dateStr: string, locale: string): string {
   }
 }
 
-function InviteCardInner({ name, company, date, count, inviteUrl }: InviteCardProps & { forDownload?: boolean }) {
+function InviteCardInner({ name, company, date, count }: InviteCardProps & { forDownload?: boolean }) {
   const { t, locale } = useI18n();
 
   return (
@@ -123,12 +122,10 @@ function InviteCardInner({ name, company, date, count, inviteUrl }: InviteCardPr
             <p className="text-gray-800 font-medium">{t("invite.company")}</p>
             <p className="text-gray-400 text-sm">{t("invite.companyEn")}</p>
           </div>
-          {inviteUrl && (
-            <div className="flex flex-col items-center">
-              <QRCodeSVG value={inviteUrl} size={80} level="M" />
-              <p className="text-xs text-gray-400 mt-1">{t("invite.scanToVerify")}</p>
-            </div>
-          )}
+          <div className="flex flex-col items-center">
+            <QRCodeSVG value="https://wa.me/8618928623468" size={80} level="M" />
+            <p className="text-xs text-gray-400 mt-1">{t("invite.scanWhatsApp")}</p>
+          </div>
         </div>
       </div>
 
@@ -141,7 +138,7 @@ function InviteCardInner({ name, company, date, count, inviteUrl }: InviteCardPr
   );
 }
 
-export default function InviteCard({ name, company, date, count, inviteUrl }: InviteCardProps) {
+export default function InviteCard({ name, company, date, count }: InviteCardProps) {
   const { t } = useI18n();
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -171,7 +168,7 @@ export default function InviteCard({ name, company, date, count, inviteUrl }: In
         className="w-full max-w-[600px] bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200"
         style={{ fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif" }}
       >
-        <InviteCardInner name={name} company={company} date={date} count={count} inviteUrl={inviteUrl} />
+        <InviteCardInner name={name} company={company} date={date} count={count} />
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3 mt-8">

@@ -23,8 +23,6 @@ function InviteContent() {
     );
   }
 
-  const inviteUrl = typeof window !== "undefined" ? window.location.href : "";
-
   return (
     <div className="py-8">
       <InviteCard
@@ -32,7 +30,6 @@ function InviteContent() {
         company={company}
         date={date}
         count={count}
-        inviteUrl={inviteUrl}
       />
     </div>
   );
