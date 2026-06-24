@@ -17,7 +17,7 @@ export default function Home() {
         <div className="text-center mb-10">
           <div className="flex justify-center mb-4">
             <img
-              src="https://bkimg.cdn.bcebos.com/pic/2934349b033b5bb5d5e53ea939d3d539b600bcb2?x-bce-process=image/format,f_auto/quality,Q_70/resize,m_lfit,limit_1,w_536"
+              src="/logo.jpeg"
               alt="CGCH Logo"
               className="w-24 h-24 object-contain"
             />
