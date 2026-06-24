@@ -4,11 +4,11 @@ import nodemailer from "nodemailer";
 interface FormData {
   name: string;
   company: string;
-  position: string;
+  position?: string;
   email: string;
-  phone: string;
-  visitDate: string;
-  visitorCount: string;
+  phone?: string;
+  visitDate?: string;
+  visitorCount?: string;
   notes?: string;
 }
 
@@ -16,14 +16,7 @@ export async function POST(request: NextRequest) {
   try {
     const data: FormData = await request.json();
 
-    if (
-      !data.name ||
-      !data.company ||
-      !data.email ||
-      !data.phone ||
-      !data.visitDate ||
-      !data.visitorCount
-    ) {
+    if (!data.name || !data.company || !data.email) {
       return NextResponse.json({ error: "请填写所有必填字段" }, { status: 400 });
     }
 
@@ -37,7 +30,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    const inviteUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/invite?name=${encodeURIComponent(data.name)}&company=${encodeURIComponent(data.company)}&position=${encodeURIComponent(data.position || "")}&date=${encodeURIComponent(data.visitDate)}&count=${encodeURIComponent(data.visitorCount)}`;
+    const inviteUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/invite?name=${encodeURIComponent(data.name)}&company=${encodeURIComponent(data.company)}&position=${encodeURIComponent(data.position || "")}&date=${encodeURIComponent(data.visitDate || "")}&count=${encodeURIComponent(data.visitorCount || "")}`;
 
     if (process.env.SMTP_USER && process.env.SMTP_PASS && process.env.SMTP_USER !== "your-email@your-domain.com") {
       const adminMailOptions = {

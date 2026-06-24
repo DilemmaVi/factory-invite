@@ -8,7 +8,7 @@ import { useI18n } from "@/lib/i18n";
 
 export default function Form() {
   const router = useRouter();
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
@@ -21,6 +21,8 @@ export default function Form() {
     visitorCount: "",
     notes: "",
   });
+
+  const defaultCountry = locale === "zh" ? "CN" : locale === "es" ? "MX" : "US";
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -38,7 +40,14 @@ export default function Form() {
     setError("");
 
     if (!formData.name || !formData.company || !formData.email) {
-      setError(t("form.error.submitFailed"));
+      setError(t("error.requiredFields"));
+      setLoading(false);
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError(t("form.error.emailInvalid"));
       setLoading(false);
       return;
     }
@@ -127,7 +136,7 @@ export default function Form() {
           {label(t("form.phone"), false)}
           <PhoneInput
             international
-            defaultCountry="MX"
+            defaultCountry={defaultCountry}
             value={formData.phone}
             onChange={handlePhoneChange}
             className="phone-input-container"

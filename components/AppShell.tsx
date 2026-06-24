@@ -18,12 +18,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
       }
     }
 
-    const saved = localStorage.getItem("cgch-locale");
-    if (saved && (saved === "zh" || saved === "en" || saved === "es")) {
-      setDefaultLocale(saved);
-    } else {
-      detectLocale();
-    }
+    detectLocale();
   }, []);
 
   return <I18nProvider defaultLocale={defaultLocale}>{children}</I18nProvider>;
