@@ -1,0 +1,51 @@
+components/InviteCard.tsx
+  a68a530aca9b82e4 8
+  2179d46a3ade8377 101
+  e8325cd416861a62 6-7,17-40,42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.3",
+  "base_commit_sha": "1a9d2e6d57d82276eaa64747d989e1794fd5c829",
+  "prompts": {
+    "2179d46a3ade8377": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-6cab0d38-42d2-4489-83d6-28fb08f0bdfd",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "a68a530aca9b82e4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-3b5801c3-7992-4c6e-9453-95285b9290f5",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "e8325cd416861a62": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-a0690e52-2867-41cb-96f8-5c7f23b80be5",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 27,
+      "total_deletions": 1,
+      "accepted_lines": 27,
+      "overriden_lines": 0
+    }
+  }
+}
