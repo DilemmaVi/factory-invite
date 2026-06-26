@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "date-fns": "^4.4.0",
     "html-to-image": "^1.11.13",
     "libphonenumber-js": "^1.13.7",
