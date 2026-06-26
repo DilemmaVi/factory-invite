@@ -1,0 +1,53 @@
+app/layout.tsx
+  7bf691f269a5ce54 5
+  5f929a9983829594 34
+package.json
+  db92e41133bfcb7e 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.3",
+  "base_commit_sha": "10c70510d1fa86e38b285a0d92e30629436789b0",
+  "prompts": {
+    "5f929a9983829594": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-1ebe6289-b176-4c52-94c5-1b97c23d948e",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "7bf691f269a5ce54": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "opencode-transcript-ses_10ac75459ffeFORvhiWH3MkuEi-0d193a88-8a10-4216-a714-354d666293c8",
+        "model": "unknown"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "db92e41133bfcb7e": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_10ac75459ffeFORvhiWH3MkuEi",
+        "model": "xiaomi/mimo-v2.5-pro"
+      },
+      "human_author": "DilemmaVi <349371218@qq.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0,
+      "messages_url": "https://gitai.gz.cvte.cn/cas/d81a325060ef12ebee795263fe7a10781fe66bc2de44dfd8a10240c8f23f23bf"
+    }
+  }
+}
